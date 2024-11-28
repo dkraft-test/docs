@@ -1,131 +1,116 @@
 ---
-title: "Organisationsadministration"
+title: "Organization Administration"
 linkTitle: "Administration"
 type: "docs"
 weight: 20
-date: 2024-07-01
+date: 2024-11-25
 description: >
-  Nutzer- und Rechteverwaltung, Administration und Einstellungen auf Organisationsebene
+  User and permission management, administration, and settings at the organizational level
 ---
 
+## Managing Access
 
+In the `Administration` menu, you can access an overview of users, groups, and account settings.
 
-## Verwaltung von Zugängen
+Here, you can add users to your organization and manage their permissions (roles).
 
-Unter dem Menüpunkt `Administration` gelangen Sie in die Übersicht für Benutzer, Gruppen und Account-Einstellungen.
+### Users
 
-Hier können Sie Ihrer Organisation weitere Benutzer hinzufügen und deren Rechte (Rollen) verwalten.
+{{< screenshot src="img/user-overview.png" title="User Overview" >}}
+In the Access Control section, you will find the subsections Users, Groups, and Roles.
 
-### Benutzer
-
-{{< screenshot src="img/user-overview.png" title="Nutzerübersicht" >}}
-Unter dem Menüpunkt Zugriffssteuerung befinden sich die Unterpunkte Benutzer, Gruppen und Rollen.
-
-Über `Benutzer` und den Button `Neu` können Sie weitere Benutzer zum Login in den vCloud Director anlegen.
+Through the `Users` tab and the `New` button, you can add additional users for logging into vCloud Director.
 {{< /screenshot >}}
 
-{{< screenshot src="img/user-create-dialog.png" title="Nutzer anlegen" >}}
-Mit diesem Dialogfenster können Sie einen Nutzer anlegen.
+{{< screenshot src="img/user-create-dialog.png" title="Create User" >}}
+This dialog allows you to create a new user.
 
-Die Nutzerdaten werden in der Datenbank des {{< abbr "vCD" "vCloud Director" >}} gespeichert.
-Es handelt sich somit um einen so genannten `lokalen Nutzer`.
+User data is stored in the {{< abbr "vCD" "vCloud Director" >}} database, making it a `local user`.
 {{< /screenshot >}}
 
-Die nachfolgenden Parameter können konfiguriert werden:
+The following parameters can be configured:
 
-| Parameter                   | Beschreibung                                                                                                         |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Benutzername                | Benutzername für den Login                                                                                           |
-| Kennwort                    | Passwort für den Login                                                                                               |
-| Kennwort bestätigen         | Wiederholung des Passworts um Tippfehler auszuschließen                                                              |
-| Aktivieren                  | Benutzeraccount nach dem Erstellen aktivieren oder deaktivieren. Nur aktive Nutzer können sich erfolgreich anmelden. |
-| Verfügbare Rollen           | Benutzerrechte über eine vorgefertigte Rolle bestimmen                                                               |
-| Vollständiger Name          | Name des Benutzers (optional)                                                                                        |
-| E-Mail-Adresse              | E-Mail-Adresse des Benutzers (optional)                                                                              |
-| Telefonnummer               | Telefonnummer des Benutzers (optional)                                                                               |
-| IM                          | Informationen über einen Instant Messenger (optional)                                                                |
-| Kontingent aller VMs        | Mögliches Limit für zu erstellende {{< abbr "VM" "Virtuelle Maschine" >}}s                                           |
-| Kontingent ausgeführter VMs | Mögliches Limit für gleichzeitig eingeschaltete {{< abbr "VM" "Virtuelle Maschine" >}}s                              |
+| Parameter                   | Description                                                                                                         |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Username                    | Login username                                                                                                      |
+| Password                    | Login password                                                                                                      |
+| Confirm Password            | Repeat the password to avoid typos                                                                                  |
+| Enable                      | Activate or deactivate the user account upon creation. Only active users can log in successfully.                   |
+| Available Roles             | Assign user permissions using a predefined role                                                                     |
+| Full Name                   | Full name of the user (optional)                                                                                    |
+| Email Address               | Email address of the user (optional)                                                                                |
+| Phone Number                | Phone number of the user (optional)                                                                                 |
 
-### Gruppen
+### Groups
 
-Unter `Gruppen` wären generell Gruppierungen von Benutzern einzurichten.
-Dies ist für Importierte Gruppen aus einem {{< abbr "IdP" "Identity Provider" >}} gedacht.
+In `Groups`, you can define groupings for users. This is intended for imported groups from an {{< abbr "IdP" "Identity Provider" >}}.
 
-### Rollen
+### Roles
 
-Unter `Rollen` befinden sich bereits vorgefertigte Rollen.
-Eine Rolle beinhaltet immer eine Sammlung von Rechten für einen Benutzer oder eine Gruppe.
+Predefined roles are available under the `Roles` section. A role always includes a set of permissions for a user or group.
 
-{{< screenshot src="img/roles-overview.png" title="Rollenübersicht" >}}
-Über den Button `Neu` können Sie weitere benutzerdefinierte Rollen anlegen, die dann für neue Benutzer verwendet werden können.
+{{< screenshot src="img/roles-overview.png" title="Roles Overview" >}}
+Using the `New` button, you can create additional custom roles that can be assigned to new users.
 {{< /screenshot >}}
 
-{{< screenshot src="img/roles-create-dialog.png" title="Rolle anlegen" >}}
-Die Rechte können pro Menüpunkt individuell zusammengestellt werden.
+{{< screenshot src="img/role-create-dialog" title="New Role" >}}
+Permissions can be customized individually for each menu item.
 {{< /screenshot >}}
 
-## Instanzen freigeben
+## Sharing Instances
 
-Mit der Konfiguration von Usern auf der Rolle `vApp User` ist es möglich, auch den Zugang auf einzelne vApps oder VMs zu begrenzen.
+With users configured as `vApp Users`, access to individual vApps or VMs can be restricted.
 
-{{< screenshot src="img/vmpermission-create-user.png" title="Nutzer anlegen" >}}
-Erstellen Sie einen Nutzer, mit dem die {{< abbr "VM" "Virtuelle Maschine" >}} geteilt werden soll oder stellen Sie sicher, dass dieser Nutzer bereits existiert.
+Create a user to share the {{< abbr "VM" "Virtual Machine" >}} with, or ensure that the user already exists.
+
+{{< screenshot src="img/vmpermission-select-orgvdc.png" title="Select OrgVDC" >}}
+Select the desired {{< abbr "OrgVDC" "Organization Virtual Datacenter" >}}.
 {{< /screenshot >}}
 
-{{< screenshot src="img/vmpermission-select-orgvdc.png" title="OrgVDC auswählen" >}}
-Wählen Sie das gewünschte {{< abbr "OrgVDC" "Organization Virtual Datacenter" >}} aus.
+{{< screenshot src="img/vmpermission-select-vm.png" title="Select VM" >}}
+Choose the desired {{< abbr "VM" "Virtual Machine" >}}.
 {{< /screenshot >}}
 
-{{< screenshot src="img/vmpermission-select-vm.png" title="VM auswählen" >}}
-Wählen Sie die gewünschte {{< abbr "VM" "Virtuelle Maschine" >}} aus.
+{{< screenshot src="img/vmpermission-share-dialog.png" title="Configure Sharing" >}}
+Navigate to the `Sharing` page in the {{< abbr "VM" "Virtual Machine" >}} details view and click on `Edit`.
 {{< /screenshot >}}
 
-{{< screenshot src="img/vmpermission-share-vm.png" title="OrgVDC auswählen" >}}
-Navigieren Sie in der {{< abbr "VM" "Virtuelle Maschine" >}} Detailansicht über das seitliche Menü zur Seite `Gemeinsame Nutzung` und klicken Sie dort auf `Bearbeiten`.
+This procedure works similarly for sharing with a group or sharing a vApp.
+
+## Guest Customization
+
+In the Administration section under Guest Customization, you can configure a global domain join for Windows {{< abbr "VM" "Virtual Machine" >}}s for the entire organization, removing the need to configure this individually for each {{< abbr "VM" "Virtual Machine" >}}.
+
+{{< screenshot src="img/guestcustomization-overview.png" title="View Guest Customization" >}}
+Select the `Guest Customization` option in the administration area and click `Edit`.
 {{< /screenshot >}}
 
-{{< screenshot src="img/vmpermission-share-dialog.png" title="Freigabe konfigurieren" >}}
-Wählen Sie das gewünschte {{< abbr "OrgVDC" "Organization Virtual Datacenter" >}} aus.
+{{< screenshot src="img/guestcustomization-dialog.png" title="Edit Guest Customization" >}}
+In the dialog that opens, you can enter the necessary credentials for a domain join.
 {{< /screenshot >}}
 
-Dieses Vorgehen funktioniert analog für das Teilen mit einer Gruppe und für das Teilen einer vApp.
+## Policies
 
-## Gast-Anpassung
+As an organization administrator, you can configure policies and settings for the organization. These influence the behavior and capacity of the entire organization.
 
-Unter dem Menüpunkt Administration und Gast-Anpassung lässt sich global für die Organisation ein Domänenbeitritt für Windows {{< abbr "VM" "Virtuelle Maschine" >}}s konfigurieren, sodass die Konfiguration nicht pro {{< abbr "VM" "Virtuelle Maschine" >}} erforderlich ist.
-
-{{< screenshot src="img/guestcustomization-overview.png" title="Gast-Anpassung einsehen" >}}
-Wählen Sie den Menüpunkt `Gast-Anpassung` im Administrationsbereich aus und klicken Sie auf `Bearbeiten`.
+{{< screenshot src="img/policies.png" title="View and Configure Policies" >}}
+In the `Policies` section of the Administration area, you can configure defaults and limits for your organization.
 {{< /screenshot >}}
 
-{{< screenshot src="img/guestcustomization-dialog.png" title="Gast-Anpassung bearbeiten" >}}
-In dem sich öffnenden Dialog lassen sich die nötigen Zugangsdaten für einen Domänenbeitritt eintragen.
-{{< /screenshot >}}
+The following parameters can be adjusted:
 
-## Richtlinien
-
-Als Organisationsadministrator können Sie einige Richtlinien und Vorgaben für die Organisation einstellen.
-Diese haben Einfluss auf Verhalten und Kapazität Ihrer gesamten Organisation.
-
-{{< screenshot src="img/policies.png" title="Richtlinien einsehen und konfigurieren" >}}
-Unter dem Menüpunkt Richtlinien im Bereich Administration können Sie einige Voreinstellungen bzw. Limits für Ihre Organisation konfigurieren.
-{{< /screenshot >}}
-
-Die nachfolgenden Parameter können bearbeitet werden:
-
-* vApp-Leases
-  * Maximale Laufzeit-Leases: Voreinstellung, nach wie vielen Stunden oder Tagen eine vApp ausläuft und die Laufzeitablaufaktion ausgeführt wird. Die automatische Ausführung der Laufzeitablaufaktion bei Fristerreichnung bewirkt, dass die vApp (inkl. {{< abbr "VM" "Virtuelle Maschine" >}}s) nicht mehr erreichbar ist. Der Standard-Wert in der Voreinstellung ist `Läuft nie ab`
-  * Laufzeitablaufaktion: Bestimmt, was nach Ablauf des Leases mit der vApp passiert. `Anhalten` oder `Stoppen` sind mögliche Parameter. Hinweis: Nur für laufende {{< abbr "VM" "Virtuelle Maschine" >}}s fallen Computekosten an.
-  * Maximaler Speicher-Lease: Definiert die Frist, nach der der belegte vApp-Speicher (Festplatten) von ausgeschalteten vApps bereinigt wird. Dies kann durch Verschieben oder endgültiges Löschen passieren. Standard ist: `Läuft nie ab`
-  * Speicher bereinigen: Mögliche Optionen sind: `Speicher verschieben` oder `löschen`
-* vApp-Vorlage-Lease
-  * Maximaler Speicher-Lease: Standard ist: `Läuft nie ab`. Es können aber auch Stunden oder Tage definiert werden, in denen eine vApp-Vorlage abläuft und die Laufzeitablaufaktion ausgeführt wird.
-  * Speicher bereinigen: Mögliche Optionen sind: `Speicher verschieben` oder `löschen`
-* Standardkontingente
-  * Kontingent aller {{< abbr "VM" "Virtuelle Maschine" >}}s: Mögliches Limit für zu erstellende {{< abbr "VM" "Virtuelle Maschine" >}}s
-  * Kontingent ausgeführter {{< abbr "VM" "Virtuelle Maschine" >}}s: Mögliches Limit für laufende {{< abbr "VM" "Virtuelle Maschine" >}}s
-* Kennwortrichtlinien
-  * Kontosperrung: Kontosperrung aktivieren oder deaktivieren zum Schutz des Kontos bei unzulässigen Zugriffen
-  * Ungültige Anmeldungen vor der Sperrung: Definiert die Anzahl der fehlgeschlagenen Logins bevor der Benutzer gesperrt wird
-  * Kontosperrungsintervall: Definiert, wie lange das Konto gesperrt bleibt, bis ein Login wieder möglich ist. Die Entsperrung des Kontos erfolgt automatisch durch das System.
+* vApp Leases
+  * Maximum Runtime Lease: Set the default expiration time (in hours or days) for a vApp before the expiration action is executed. By default, the setting is `Never Expires`.
+  * Runtime Expiration Action: Define the action to take upon expiration, such as `Suspend` or `Power Off`. Note: Only running {{< abbr "VM" "Virtual Machine" >}}s incur compute costs.
+  * Maximum Storage Lease: Set the expiration time for storage used by powered-off vApps (disks). Actions can include moving or permanently deleting storage. Default: `Never Expires`.
+  * Clean Up Storage: Options include `Move Storage` or `Delete`.
+* vApp Template Lease
+  * Maximum Storage Lease: Default is `Never Expires`. You can define hours or days before the expiration action is executed.
+  * Clean Up Storage: Options include `Move Storage` or `Delete`.
+* Default Quotas
+  * Quota for all {{< abbr "VM" "Virtual Machine" >}}s: Limit the number of {{< abbr "VM" "Virtual Machine" >}}s that can be created.
+  * Quota for running {{< abbr "VM" "Virtual Machine" >}}s: Limit the number of running {{< abbr "VM" "Virtual Machine" >}}s.
+* Password Policies
+  * Account Lockout: Enable or disable account lockout to protect against unauthorized access attempts.
+  * Invalid Login Attempts Before Lockout: Set the number of failed login attempts allowed before the user is locked out.
+  * Lockout Interval: Define the duration of the lockout before the account is automatically unlocked.
